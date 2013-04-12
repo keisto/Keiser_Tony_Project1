@@ -1,0 +1,123 @@
+/* Default Classes */
+header{
+	text-align: center;
+}
+body {	
+	font-family: 'Dosis', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	color: #b3b3b3;
+	padding: 20px;
+	text-align: center;
+	background-position: left bottom;
+	background: url('../_img/bg.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover; /*for webKit*/
+        -moz-background-size: cover; /*Mozilla*/
+        -o-background-size: cover; /*opera*/
+        background-size: cover; /*generic*/
+}
+form{
+	background-color: #184C49;
+	padding: 0px;
+	border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+	background-image: linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -o-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -moz-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -webkit-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -ms-linear-gradient(#00A99D 30%, #184C49 100%);
+}
+
+fieldset {
+ 	border: 3px solid #00A99D;
+ 	padding: 10px 10px 40px 10px;
+ 	margin: 0px;
+	background-image: url(../_img/logosmall.png);
+	background-position: 98% 98%;
+	background-repeat: no-repeat;
+	background-size: 140px;
+	border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+
+}
+
+legend {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	color: white;
+	border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+	background-color: #00A99D;
+	width: 100%;
+}
+
+label {
+	padding: 2px;
+	margin: 0px;
+	color: white;
+	display: block;
+}
+
+hr {
+	width: 80%;
+	padding: 0px;
+	margin-top: -5px;
+	border-color: #184C49;
+}
+ul {
+	list-style-type:none;
+	font-weight: 800;
+	color: black;	
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+li{
+	padding-top: 10px;
+	line-height: 18px;
+	text-align: left;
+}
+/* Web links */
+a:link {text-decoration:none; color:white;}
+a:visited {text-decoration:none; color:white;}
+a:hover {text-decoration:none; color:white;}
+a:active {text-decoration:none; color:white;}
+
+/* Custom Classes */
+#copyright {	
+	font-size: 12px;
+	text-align: center;
+	padding: 20px;
+	color: #b3b3b3;
+}
+#ulink{
+
+	list-style-type:none;	
+	padding: 0;
+	margin: 0;
+	margin-bottom: 5px;
+}
+#listlink{
+	display:inline;
+	font-size: 32px;	
+	font-weight: 800;
+	background-image: linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -o-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -moz-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -webkit-linear-gradient(#00A99D 30%, #184C49 100%);
+	background-image: -ms-linear-gradient(#00A99D 30%, #184C49 100%);
+	border: 3px solid #00A99D;
+	border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+	padding: 10px;
+	margin: 5px;
+}

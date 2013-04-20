@@ -3,11 +3,12 @@ header{
 	text-align: center;
 	margin-bottom: 10px;
 }
+
 body {	
 	font-family: 'Dosis', sans-serif;
 	font-weight: 400;
 	font-size: 24px;
-	color: #b3b3b3;
+	color: #ffffff;
 	padding: 20px;
 	text-align: center;
 	background-position: left bottom;
@@ -84,7 +85,33 @@ ul {
 li{
 	padding-top: 10px;
 	line-height: 18px;
+	color: white;
 	text-align: left;
+}
+h1{
+	display: inline;
+}
+input[type=text],[type=password],textarea {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    height: 20px;
+    padding: 4px 6px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 60%;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(85, 85, 85);
+    border-radius: 4px 4px 4px; 
+    -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+textarea {
+	width: 60%;
+	height: 100px;	
+	resize: vertical;
 }
 /* Web links */
 a:link {text-decoration:none; color:white;}
@@ -93,23 +120,24 @@ a:hover {text-decoration:none; color:white;}
 a:active {text-decoration:none; color:white;}
 
 /* Custom Classes */
-#copyright {	
+.copyright {	
 	font-size: 12px;
 	text-align: center;
 	padding: 20px;
 	color: #b3b3b3;
 }
-#ulink{
+.ulink{
 	text-align: center;
 	list-style-type:none;	
 	padding: 0;
 	margin: 0;
 	margin-bottom: 5px;
 }
-#listlink{
-	display:inline;
-	font-size: 32px;	
+.listlink{ 
+	display:inline; 
+	font-size:xx-large;
 	font-weight: 800;
+	color: white;
 	background-image: linear-gradient(#00A99D 30%, #184C49 100%);
 	background-image: -o-linear-gradient(#00A99D 30%, #184C49 100%);
 	background-image: -moz-linear-gradient(#00A99D 30%, #184C49 100%);
@@ -122,4 +150,15 @@ a:active {text-decoration:none; color:white;}
 		-khtml-border-radius: 10px;
 	padding: 10px;
 	margin: 5px;
+	margin-bottom: 20px;
+}
+.genderradio {
+	padding: 2px;
+	margin: 0px;
+	color: white;
+	display:inline; 
+	vertical-align:bottom;
+}
+.hide {
+	display: none;
 }

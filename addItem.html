@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--Mold Fitness :: Project: Web App Part 2 :: By Tony Keiser 1112-->
+<!--Mold Fitness :: Project: Web App Part 3 :: By Tony Keiser 1112-->
 <html>
 	<head>
 	<!--Meta Tags-->
@@ -25,8 +25,9 @@
 			<fieldset>
 				<legend><h1> ADD ITEM</h1></legend>
 				<hr>
+					<ul id="errors"></ul>
 					<ul>
-						<li><label for="name">Name:</label><input type="text" id="name" value="Tony" placeholder="First & Last Name"/></li>
+						<li><label for="name">Name:</label><input type="text" id="name" placeholder="First & Last Name"/></li>
 						<li><label for="pass">Password:</label><input type="password" id="pass" placeholder="Password"/></li>
 						<li>
 							<input type="radio" value="Male" id="male" name="gender" />
@@ -36,9 +37,12 @@
 								<label class="genderradio" for="female">Female</label></li>
 						<li><label for="weight">Current Weight:</label>
 							<input type="text" id="weight" placeholder="in Pounds" /></li>
-						<li><label for="muscle">Muscle Group:</label>
-							<select id="muscle">	   
-									<option selected="Rest">Rest</option>	
+						<li><label for="activity">Activity:</label>
+							<select id="activity">	
+									<option selected="null"></option>  
+								<optgroup label="Choose an Activity"> 
+									<option value="Cardio">Cardio</option> 
+									<option value="Rest">Rest</option>	
 								<optgroup label="Select Muscle Group">
 									<option value="Chest">Chest</option>
 									<option value="Back">Back</option>
@@ -49,10 +53,10 @@
 								</optgroup>
 							</select>
 						</li>
-						<li><label for="sets"># of Sets:</label><input type="range" min="1" max="20" id="sets"/><span id="nSets"></span></li>
-						<li><label for="reps"># of Reps:</label><input type="range" min="1" max="20" id="reps"/><span id="nReps"></span></li>	
+						<li><label for="sets"># of Sets:</label><input type="range" min="1" max="20" value="3" id="sets"/><span id="nSets"></span></li>
+						<li><label for="reps"># of Reps:</label><input type="range" min="1" max="20" value="2" id="reps"/><span id="nReps"></span></li>	
 						<li><label for="cardio">Cardio:</label><input type="checkbox" id="cardio"/> yes</li>
-						<li id="cardioBox" class="hide"><label for="time">Cardio Time:</label><input type="range" min="1" max="12" id="time"/><span id="nTime"></span></li>
+						<li id="cardioBox" class="hide"><label for="time">Cardio Time:</label><input type="range" min="0" max="12" value="0" id="time"/><span id="nTime"></span></li>
 						<li><label for="notes">Notes :</label><textarea id="notes" placeholder="Additional Info."></textarea></li>
 						<li><label for="date">Set Date :</label><input type="date" id="date"/></li>
 
@@ -66,13 +70,13 @@
 	
 		<form id="viewForm" class="hide">
 			<fieldset>
-				<legend><h1>Current Workout</h1></legend>
+				<legend><h1>Current Workout(s):</h1></legend>
 				<span id="workout"></span>
 			</fieldset>
 		</form>
 <!--Footer-->
 		<footer>
-			<div class="copyright"> &copy;&nbsp;1112 :: TONY KEISER :: PROJECT 1 :: VFW </div>
+			<div class="copyright"> &copy;&nbsp;1112 :: TONY KEISER :: PROJECT 3 :: VFW </div>
 		</footer>
 	</body>
 	

@@ -5,18 +5,21 @@ header{
 }
 
 body {	
+	margin: 0;
 	font-family: 'Dosis', sans-serif;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: medium;
 	color: #ffffff;
 	padding: 20px;
+	text-shadow: 0px 0px 1px black;
 	text-align: center;
 	background-position: left bottom;
 	background: url('../_img/bg.jpg') no-repeat center center fixed;
         -webkit-background-size: cover; /*for webKit*/
         -moz-background-size: cover; /*Mozilla*/
         -o-background-size: cover; /*opera*/
-        background-size: cover; /*generic*/
+        background-size: cover; /*generic*/ 
+
 }
 form{
 	background-color: #184C49;
@@ -26,6 +29,7 @@ form{
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		-khtml-border-radius: 10px;
+	box-shadow:  0px 0px 10px 2px black;
 	background-image: linear-gradient(#00A99D 30%, #184C49 100%);
 	background-image: -o-linear-gradient(#00A99D 30%, #184C49 100%);
 	background-image: -moz-linear-gradient(#00A99D 30%, #184C49 100%);
@@ -45,11 +49,9 @@ fieldset {
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		-khtml-border-radius: 10px;
-
 }
-
 legend {
-	padding: 0px;
+	padding: 10px;
 	margin: 0px;
 	width: 100%;
 	color: white;
@@ -90,6 +92,7 @@ li{
 }
 h1{
 	display: inline;
+	font-size: x-large;
 }
 select{
 	width: 32%;
@@ -97,8 +100,7 @@ select{
 input[type=range]{
 	width: 32%;
 }
-
-input[type=text],[type=password],textarea, [type=date]{
+input[type=text],[type=password],textarea,[type=date],[type=number]{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(204, 204, 204);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
@@ -118,9 +120,12 @@ input[type=text],[type=password],textarea, [type=date]{
 }
 textarea {
 	width: 60%;
-	height: 100px;	
+	height: 20px;	
 	resize: vertical;
 }
+
+
+
 /* Web links */
 a:link {text-decoration:none; color:black; }
 a:visited {text-decoration:none; color:black;}
@@ -128,11 +133,47 @@ a:hover {text-decoration:none; color:black;}
 a:active {text-decoration:none; color:black; }
 
 /* Custom Classes */
+.mynav{
+	position: fixed;
+	text-align: center;
+	bottom:0;
+	left:0;
+	right:0;
+	height: 44px;
+	width: 100%;
+	line-height: 44px;
+	background-image: linear-gradient(#333333 0%, #000000 100%);
+	background-image: -o-linear-gradient(#000000 0%, #1a1a1a 100%);
+	background-image: -moz-linear-gradient(#000000 0%, #1a1a1a 100%);
+	background-image: -webkit-linear-gradient(#333333 0%, #000000 100%);
+	background-image: -ms-linear-gradient(#00A99D 30%, #184C49 100%);
+	box-shadow: 0px -1px 10px 2px black;
+	
+}
+.mybutton{
+	font-family: 'Dosis', sans-serif;
+	font-weight: 800;
+	font-size: large;
+	background-color: transparent;
+	padding: 0px;
+	margin: 0px;
+	border: 0;
+	color: white;
+	vertical-align: center;
+}
+.vr {
+	width: 1px;
+	height: 35px;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline;	
+}
 .copyright {	
-	font-size: 12px;
+	font-size: small;
 	text-align: center;
 	padding: 20px;
 	color: #b3b3b3;
+	margin: 10px;
 }
 .ulink{
 	text-align: center;
@@ -141,25 +182,7 @@ a:active {text-decoration:none; color:black; }
 	margin: 0;
 	margin-bottom: 5px;
 }
-.listlink{ 
-	display:inline; 
-	font-size:xx-large;
-	font-weight: 800;
-	color: white;
-	background-image: linear-gradient(#00A99D 30%, #184C49 100%);
-	background-image: -o-linear-gradient(#00A99D 30%, #184C49 100%);
-	background-image: -moz-linear-gradient(#00A99D 30%, #184C49 100%);
-	background-image: -webkit-linear-gradient(#00A99D 30%, #184C49 100%);
-	background-image: -ms-linear-gradient(#00A99D 30%, #184C49 100%);
-	border: 3px solid #00A99D;
-	border-radius: 10px;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		-khtml-border-radius: 10px;
-	padding: 10px;
-	margin: 5px;
-	margin-bottom: 20px;
-}
+
 .genderradio {
 	padding: 2px;
 	margin: 0px;
@@ -169,5 +192,16 @@ a:active {text-decoration:none; color:black; }
 }
 .hide {
 	display: none;
+}
+.divide {
+	border-bottom: 2px dotted white;
+	color: white; 
+	width: 40%;
+	margin-top: 5px;
+
+}
+.viewActivity {
+	word-break: break-word;
+	margin-bottom: 50px;
 }
 

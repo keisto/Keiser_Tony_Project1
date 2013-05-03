@@ -1,4 +1,4 @@
-//  Mold Fitness :: Project: Web App Part 3 :: By Tony Keiser 1112
+//  Mold Fitness :: Project: Web App Part 4 :: By Tony Keiser 1112
 
 //Wait until DOM is loaded
 window.addEventListener("DOMContentLoaded", function(){
@@ -44,11 +44,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 
 	var changeReps = function(){		
-		nReps.innerHTML=reps.value*5 + " Reps"
+		nReps.innerHTML=reps.value + " Reps"
 	}
 	
 	var changeCardio = function(){		
-		nTime.innerHTML=time.value*5 + " minutes."
+		nTime.innerHTML=time.value + " minutes."
 	}
 //Checkbox Value 
 
@@ -77,9 +77,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			fit.weight		= ["Weight:", weight.value];
 			fit.muscle		= ["Activity:", activity.value];
 			fit.sets 		= ["Number of Sets:", sets.value];
-			fit.reps		= ["Number of Reps:", reps.value*5];
+			fit.reps		= ["Number of Reps:", reps.value];
 			fit.cardio 		= ["Cardio Today:", cardio.checked];
-			fit.time 		= ["Cardio Time:", time.value*5 + "Minutes"];
+			fit.time 		= ["Cardio Time:", time.value + " Minutes"];
 			fit.notes 		= ["Notes:", notes.value];
 			fit.date		= ["Date:", date.value];
 			
@@ -92,8 +92,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	var viewData = function(){
 	    //Disable link if empty
 		if(localStorage.length==0){
-			alert("No workouts added.");
-			return false;
+			alert("No workouts added, so Example data was added");
+			autoFill();
+			//Show by remove hidden
+			document.getElementById("viewForm").removeAttribute("class");
+			//Hide Form 
+			document.getElementById("form").setAttribute("class", "hide");
 		}
 
 		//Add Workout button and DO NOT validate then read validation
@@ -112,6 +116,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var target = document.getElementById('workout');
 	var newDiv = document.createElement('div');
 	newDiv.setAttribute("id", "aList");
+	newDiv.setAttribute("class", "viewActivity")
 	var makeList = document.createElement('ul');
 	newDiv.appendChild(makeList);
 	target.appendChild(newDiv);	
@@ -121,52 +126,87 @@ window.addEventListener("DOMContentLoaded", function(){
 			var links = document.createElement('li');
 			var space = document.createElement('br');
 			var rule = document.createElement('hr');
+			rule.setAttribute("class", "divide");
 			makeList.appendChild(listItem);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// Convert
 			var obj = JSON.parse(value);
 			var subList = document.createElement('ul');				
-					subList.appendChild(rule);		
+	
 					makeList.appendChild(subList);
+				getImage(obj.muscle[1], subList);
 				for (var n in obj){
 					var makeSubLi = document.createElement('li');
 					subList.appendChild(makeSubLi);
 					var optSubText = obj[n][0]+ " " +obj[n][1];
 					makeSubLi.innerHTML = optSubText; 	
 					subList.appendChild(links);
+					subList.appendChild(rule);	
 					subList.appendChild(space);	
 									
 			}
 			makeItemLinks(localStorage.key(i), links);
 		} 
 	}
-			
+//###################################################################################	
+// Auto Fill Data ###################################################################
+//###################################################################################
+
+function autoFill(){
+	//JSON Object = json.js Example Data
+	//Store into local storage if empty
+	for(var n in json){
+		var id = Math.floor(Math.random()*1000000000);
+		
+		localStorage.setItem(id, JSON.stringify(json[n]));
+	}
+	
+}
+
+//###################################################################################	
+//GetImgae - Image for Activity list ################################################
+//###################################################################################
+
+	function getImage(iName, subList){
+		var imgLi = document.createElement('li');
+		imgLi.style.textAlign = "center";
+		subList.appendChild(imgLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "_img/"+ iName +".png")
+		imgLi.appendChild(newImg);
+	}
+
 //###################################################################################	
 //makeItemLinks   -   Edit and delete links for storage ###############################
 //###################################################################################
 	function makeItemLinks(key, links){
+		//Align Links to right Side
+		links.style.textAlign = "center";
+	
 		var editLink = document.createElement('a');
+		var editLinkImg = document.createElement('img');
+		var editSrc = editLinkImg.setAttribute("src", "_img/edit.png");
 		editLink.href = "#";
 		editLink.key = key;	
-		var editLinkText = "[ Edit Workout ]";
 		editLink.addEventListener("click", editItem);
-		editLink.innerHTML = editLinkText;
 		links.appendChild(editLink);
-		
+		editLink.appendChild(editLinkImg);		
 		
 		
 		var deleteLink = document.createElement('a');
+		var deleteLinkImg = document.createElement('img');
+		var deleteSrc = deleteLinkImg.setAttribute("src", "_img/delete.png");
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteLinkText = "[ Delete Workout ]";
 		deleteLink.addEventListener("click", deleteItem);
-		deleteLink.innerHTML = deleteLinkText;
 		links.appendChild(deleteLink);
+		deleteLink.appendChild(deleteLinkImg);
 }
 //###################################################################################
 //Edit Link ###################################################################
 //###################################################################################
+
 	function editItem(){
 		//Show form to edit		
 		document.getElementById("form").removeAttribute("class");
@@ -186,7 +226,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				}	
 		weight.value = fit.weight[1];
 		activity.value = fit.muscle[1];
-		sets.value = sets.value[1];
+		sets.value = fit.sets[1];
 		reps.value = fit.reps[1];	
 			if(fit.cardio[1] == true){
 				cardio.setAttribute("checked", "checked");
@@ -209,9 +249,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		saveEdit.addEventListener("click", validate);
 		saveEdit.key = this.key;
 	}
+
 //###################################################################################	
 //Delete Link ###################################################################
 //###################################################################################
+
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this activity?");
 		if(ask){
@@ -226,6 +268,7 @@ window.addEventListener("DOMContentLoaded", function(){
 //###################################################################################
 //Validate form ###################################################################
 //###################################################################################
+
 	function validate(){
 		//Define elements to check
 		var getName = name;
@@ -251,7 +294,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			getName.style.border = "1.5px outset #fc0792";
 			getName.style.boxShadow = "0px 0px 20px #fc0792";
 			eMsg.push(nameError);
-	}
+		}
 		//Pass Validataion
 		if(getPass.value==""){
 			var passError = "***Please enter in your password.***";
@@ -295,6 +338,7 @@ window.addEventListener("DOMContentLoaded", function(){
 //###################################################################################
 //Add Data & Clear Form ###############################################################
 //###################################################################################
+
 	var addData = function(){		
 		document.getElementById("form").reset();
 		alert("Workout Saved!");
@@ -304,15 +348,38 @@ window.addEventListener("DOMContentLoaded", function(){
 //###################################################################################
 //Clear Data ###################################################################
 //###################################################################################
+
 	var clearData = function(){
 		localStorage.clear();
 		alert("All Workouts Erased!");
 		document.location.reload();
 	}
 
+	var iView = document.getElementById("iview");
+	
+
+//###################################################################################
+//Index View Data ###################################################################
+//###################################################################################
+	
+	 var myUrl = window.location.href;
+	 var splitUrl = myUrl.split("/");
+	 var lastUrl = splitUrl.length - 1
+	
+	 if(splitUrl[lastUrl]!="addItem.html" && splitUrl[lastUrl]!="addItem.html#"){
+	 	function iViewData(){
+			document.location.href = "addItem.html";
+			viewData();
+		}
+		
+		iView.addEventListener("click", iViewData);
+		 console.log("hello");
+	 }
+
 //###################################################################################
 //EventListeners ###################################################################
 //###################################################################################
+
 	cardio.addEventListener("change", cardioChecked);
 	time.addEventListener("change", changeCardio);
 	sets.addEventListener("change", changeSets);
